@@ -25,7 +25,7 @@ if (userExist) {
 
 const info = await transporter.sendMail({
     from: '"Fred Foo 👻" <emi.duarte643@gmail.com>', // sender address
-    to: "axeeel.lapetina@gmail.com", // list of receivers
+    to: "emi.duarte643@gmail.com", // list of receivers
     subject: "Hello ✔", // Subject line
     text: "Hello world?", // plain text body
    
