@@ -2,11 +2,11 @@
 const transporter = require("../middleware/nodemailer")
 const UserModel = require("../modals/users")
 
-const getAllUser = async(req, res)=>{
+const getAllUsers = async(req, res)=>{
 const allUsers = await UserModel.find()/* me devuelve todo los ususarios */
     res.json({msg:"se envian todos los ususarios", allUsers})
 }
-const getOneUser = async (req,res)=>{
+const getOneUsers = async (req,res)=>{
   const id = req.params.id 
   const getUser = await UserModel.findOne({_id: id})
  
@@ -130,5 +130,5 @@ const logoutUser = async(req,res)=>{
 
 
 module.exports= {
-    getAllUser,  createUser, uptadeUser, deleteUser,getOneUser,logoutUser,logierUser
+    getAllUsers,  createUser, uptadeUser, deleteUser,getOneUsers,logoutUser,logierUser
 }
