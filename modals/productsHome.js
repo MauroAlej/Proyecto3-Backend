@@ -14,15 +14,15 @@ const ProductHomeSchema = new Schema ({
         type: String,
         required: true
     },
-    detalle:{
+    /*  detalle:{
         type: String,
-        required: true
+        
     },
     categoria:{
         type: String,
-        required: true
-    }
-
+         
+    } 
+ */
 })
 
 ProductHomeSchema.methods.toJSON = function () {

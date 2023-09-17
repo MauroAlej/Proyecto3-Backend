@@ -1,5 +1,6 @@
 
 const transporter = require("../middleware/nodemailer")
+const cartModel = require("../modals/cart")
 const UserModel = require("../modals/users")
 
 const getAllUsers = async(req, res)=>{
@@ -31,10 +32,17 @@ const info = await transporter.sendMail({
    
   });
 const user = new UserModel(body)
+const cart = new cartModel()
+cart.idUsuario = user._id
+user.idCart = cart._id
+
+console.log(cart)
+console.log(user)
 
 
 
  await user.save()
+ await cart.save()
 res.json({msg:"usuario creado correctamente", user})
 
 } catch (error) {
@@ -63,7 +71,6 @@ if (!errors.isEmpty()) {
 }
 try {
     const{usuario, contrasenia}= req.body
-
 const userExist = await UserModel.findOne({usuario})
 
 if (!userExist) {
