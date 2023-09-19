@@ -25,13 +25,21 @@ idCart:{
     type:String
 }
 }
+
+
+
+
+
 )
+
+
 UserSChema.methods.toJSON= function () {
  const { _v,contrasenia,...usuario}= this.toObject()  
  
  return usuario
 
 }
-const UserModel = mongoose.model("users", UserSChema) /* aqui creo la carpeta users */
 
-module.exports = UserModel
+const userModel = mongoose.model("users", UserSChema)
+
+module.exports = userModel

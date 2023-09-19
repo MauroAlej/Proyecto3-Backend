@@ -14,8 +14,10 @@ constructor(){
 }
 
 middlewares(){
-  this.app.use(express.json()) /* para que funcione los req */
-  this.app.use(cors()) 
+  this.app.use(express.json())
+    this.app.use(morgan("dev"))
+    this.app.use(express.static("public")) 
+    this.app.use(cors())
 }
 
 
