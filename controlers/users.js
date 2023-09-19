@@ -11,7 +11,7 @@ const allUsers = await UserModel.find()/* me devuelve todo los ususarios */
     res.json({msg:"se envian todos los ususarios", allUsers})
 }
 const getOneUsers = async (req,res)=>{
-    const getUser = await userModel.findOne({_id: req.params.id})
+    const getUser = await UserModel.findOne({_id: req.params.id})
 
     res.json({msg: "usuario encontrado", getUser})
 }

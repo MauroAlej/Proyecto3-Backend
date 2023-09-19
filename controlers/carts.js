@@ -15,6 +15,14 @@ const AddProductCart = async (req, res) =>{
         const getCart = await cartModel.findOne({_id: req.params.idCart})
         const getProd = await productHomeModel.findOne({_id: req.params.idProd})
         
+        const prodExist = getCart.products.filter((prod) => prod._id == req.params.idProd )
+        console.log(prodExist.length)
+        if(prodExist.lenght > 0){
+            return res.status(400).json({msg: 'Producto ya existente en el carrito'})
+        }else{
+            console.log('Else')
+        }
+
         getCart.products.push(getProd)
         await getCart.save()
         

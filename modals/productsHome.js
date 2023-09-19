@@ -14,6 +14,10 @@ const ProductHomeSchema = new Schema ({
         type: String,
         required: true
     },
+    cantidad:{
+        type: Number,
+        default:0
+    }
     /*  detalle:{
         type: String,
         
