@@ -2,6 +2,9 @@
 const transporter = require("../middleware/nodemailer")
 const cartModel = require("../modals/cart")
 const UserModel = require("../modals/users")
+const { validationResult } = require('express-validator')
+const bcrypt = require('bcryptjs')
+const jwt = require('jsonwebtoken')
 
 const getAllUsers = async(req, res)=>{
 const allUsers = await UserModel.find()/* me devuelve todo los ususarios */
