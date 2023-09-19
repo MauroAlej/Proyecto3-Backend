@@ -1,6 +1,3 @@
-
-
-
 const { validationResult}= require("express-validator")
 const userModel = require("../modals/users")
 const bcrypt = require('bcryptjs');
@@ -10,7 +7,7 @@ const transporter = require("../middleware/nodemailer");
 
 
 
-const getAllUser = async(req,res)=>{
+const getAllUsers = async(req,res)=>{
 transporter
 const allUser = await userModel.find()
 
@@ -171,7 +168,7 @@ res.status(200).json({msg :"usuario deslogueado"})
 }
 
 module.exports = {
-    getAllUser,
+    getAllUsers,
     getOneUser,
     createUser,
     uptadeUser,

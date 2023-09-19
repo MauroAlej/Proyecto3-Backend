@@ -4,13 +4,13 @@ const router =  Router()
 const { check } = require("express-validator")
 
 
-const{getAllUser, createUser, uptadeUser, deleteUser,getOneUser, logierUser,logoutUser}= require("../controllers/users")
+const{getAllUsers, createUser, uptadeUser, deleteUser,getOneUser, logierUser,logoutUser}= require("../controllers/users")
 const auth = require("../middleware/auth")
 
 router.get ("/logout",auth("user"),logoutUser )
 router.get ("/:id",getOneUser )
 router.get ("/",
-getAllUser )
+getAllUsers )
 
 
 router.post("/",[
