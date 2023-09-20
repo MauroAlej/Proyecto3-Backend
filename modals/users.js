@@ -6,7 +6,7 @@ nombre: String,
 usuario: {
     type: String,
     unique : true,
-    require: true
+    required: true
 },
 
 contrasenia: String,
