@@ -11,7 +11,7 @@ const allUsers = await UserModel.find()/* me devuelve todo los ususarios */
     res.json({msg:"se envian todos los ususarios", allUsers})
 }
 const getOneUsers = async (req,res)=>{
-    const getUser = await userModel.findOne({_id: req.params.id})
+    const getUser = await UserModel.findOne({_id: req.params.id})
 
     res.json({msg: "usuario encontrado", getUser})
 }
@@ -72,7 +72,7 @@ const uptadeUser = async(req, res)=>{
             res.status(422).json({msg: errors.array()})
             
         }
-    const uptadeUser= await userModel.findByIdAndUpdate({_id: req.params.id}, req.body, {new: true})
+    const uptadeUser= await UserModel.findByIdAndUpdate({_id: req.params.id}, req.body, {new: true})
     
         res.status(200).json({msg:"usuario atualizado correctamente",uptadeUser}) 
     } catch (error) {
@@ -91,7 +91,7 @@ try {
 const userExist = await UserModel.findOne({usuario})
 
 if (!userExist) {
-    res.status(400).json({msg: "usuario no existe"})
+    res.status(400).json({msg: "usuario no existe",})
 
 }
 
