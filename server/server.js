@@ -24,6 +24,7 @@ routes(){
   this.app.use("/api/products", require("../routes/productHome"))
   this.app.use("/api/cart", require("../routes/carts"))
   this.app.use("/api/reserva", require("../routes/reserva"))
+  this.app.use("/api/pay", require("../routes/pay"))
 }
 listen(){
     this.app.listen(this.port, ()=>{
