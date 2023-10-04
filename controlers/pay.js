@@ -1,6 +1,7 @@
 const mercadopago = require('mercadopago')
 
 const createPay = async (req,res) => {
+    console.log(req.body)
     try {
         mercadopago.configure({
             access_token: process.env.TOKEN_MERCADOPAGO

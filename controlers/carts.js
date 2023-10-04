@@ -17,8 +17,8 @@ const AddProductCart = async (req, res) =>{
         
         const prodExist = getCart.products.filter((prod) => prod._id == req.params.idProd )
         console.log(prodExist.length)
-        if(prodExist.lenght > 0){
-            return res.status(400).json({msg: 'Producto ya existente en el carrito'})
+        if(prodExist.length > 0){
+            return res.status(400).json({msg: 'Producto ya existente en el carrito', status: 400})
         }else{
             console.log('Else')
         }
@@ -26,7 +26,7 @@ const AddProductCart = async (req, res) =>{
         getCart.products.push(getProd)
         await getCart.save()
         
-        res.json({msg: 'Producto se cargo correctamente', getCart})
+        res.status(200).json({msg: 'Producto se cargo correctamente', getCart})
 
     } catch (error) {
         console.log (error)
