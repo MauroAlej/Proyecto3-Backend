@@ -72,7 +72,7 @@ const uptadeUser = async(req, res)=>{
             res.status(422).json({msg: errors.array()})
             
         }
-    const uptadeUser= await userModel.findByIdAndUpdate({_id: req.params.id}, req.body, {new: true})
+    const uptadeUser= await UserModel.findByIdAndUpdate({_id: req.params.id}, req.body, {new: true})
     
         res.status(200).json({msg:"usuario atualizado correctamente",uptadeUser}) 
     } catch (error) {
@@ -151,7 +151,7 @@ const logoutUser = async(req,res)=>{
     }
     const deleteUser = async(req,res)=>{
          
-        await userModel.findByIdAndDelete({_id: req.params.id})
+        await UserModel.findByIdAndDelete({_id: req.params.id})
                   
                    res.json({msg:"se borro corretamente el usuario"})
                    

@@ -17,6 +17,10 @@ const ProductHomeSchema = new Schema ({
     cantidad:{
         type: Number,
         default:0
+    },
+    imagen:{
+        type: String,
+        default: ''
     }
     /*  detalle:{
         type: String,

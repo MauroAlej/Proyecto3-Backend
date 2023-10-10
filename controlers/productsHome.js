@@ -1,4 +1,5 @@
 const ProductModel = require('../modals/productsHome')
+const cloudinary = require('../helpers/cloudinary')
 
 const getAllProductsHome = async (req, res)=> {
     try {
@@ -58,10 +59,26 @@ const deleteProductHome = async (req, res)=> {
 
 }
 
+const productImage = async(req, res) =>{
+    try {
+        
+        const product = await ProductModel.findOne({_id: req.params.idProduct})
+        const response = await cloudinary.uploader.upload(req.file.path)
+        const urlImageCloud = response.secure_url
+        product.imagen = urlImageCloud
+
+        const productUpdate = await ProductModel.findByIdAndUpdate({_id : req.params.idProduct}, product,{new:true})
+        res.status(200).json(productUpdate)
+    } catch (error) {
+        console.log (error)
+    }
+}
+
 module.exports= {
     getAllProductsHome,
     getOneProductHome,
     createProductHome,
     updateProductHome,
-    deleteProductHome
+    deleteProductHome,
+    productImage
 }
