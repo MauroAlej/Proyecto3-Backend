@@ -19,7 +19,7 @@ const createPay = async (req,res) => {
                 }
               ],
               back_urls :{
-                success:'http://localhost:2020/api/pay/success',
+                success:'http://localhost:5173/cartUser?success',
                 pending:'http://localhost:2020/api/pay/pending',
                 failure:'http://localhost:2020/api/pay/failure'
               }
