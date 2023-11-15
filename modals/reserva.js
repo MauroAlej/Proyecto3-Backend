@@ -19,17 +19,20 @@ required: true
 
 },
 
-/* fechaYhora:{
-    required:true
-} */
+fecha :{
+    type: String,
+    required: true
+    
+    },
+
+horaReserva :{
+    type: String,
+    required: true
+        
+    }
 }
 )
-ReservaSChema.methods.toJSON= function () {
- const { _v,...reserva}= this.toObject()  
- 
- return reserva
 
-}
 const ReservaModel = mongoose.model("reserva", ReservaSChema) 
 
 module.exports = ReservaModel

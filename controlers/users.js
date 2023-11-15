@@ -151,7 +151,7 @@ const logoutUser = async(req,res)=>{
     }
     const deleteUser = async(req,res)=>{
          
-        await userModel.findByIdAndDelete({_id: req.params.id})
+        await UserModel.findByIdAndDelete({_id: req.params.id})
                   
                    res.json({msg:"se borro corretamente el usuario"})
                    

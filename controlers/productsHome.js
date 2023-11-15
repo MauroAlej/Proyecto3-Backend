@@ -39,6 +39,7 @@ const createProductHome = async (req, res)=> {
 const updateProductHome = async (req, res)=> {
     try {
         const updateProd= await ProductModel.findByIdAndUpdate({_id: req.params.id},req.body,{new:true})
+        console.log(updateProd)
         res.status(200).json({msg: 'producto actualizado correctamente ',updateProd})
     } catch (error) {
         console.log(error)
