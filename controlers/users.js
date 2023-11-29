@@ -62,7 +62,7 @@ res.status(201).json({msg:"usuario creado correctamente", user, status:201})
 }
 
 }
-const uptadeUser = async(req, res)=>{
+const updateUser = async(req, res)=>{
  
         
     try {
@@ -72,9 +72,9 @@ const uptadeUser = async(req, res)=>{
             res.status(422).json({msg: errors.array()})
             
         }
-    const uptadeUser= await userModel.findByIdAndUpdate({_id: req.params.id}, req.body, {new: true})
+    const updateUser= await UserModel.findByIdAndUpdate({_id: req.params.id}, req.body, {new: true})
     
-        res.status(200).json({msg:"usuario atualizado correctamente",uptadeUser}) 
+        res.status(200).json({msg:"usuario atualizado correctamente",updateUser}) 
     } catch (error) {
         console.log(error);
     }}
@@ -112,11 +112,11 @@ const token = jwt.sign(jwtPayload , process.env.SECRET_KEY)
 
 userExist.token = token
 
- const userUptade = await UserModel.findByIdAndUpdate({_id: userExist._id},userExist,{new: true}) 
+ const userUpdate = await UserModel.findByIdAndUpdate({_id: userExist._id},userExist,{new: true}) 
 
 
 
-    res.status(200).json({msg: "usuario legueado",userUptade})
+    res.status(200).json({msg: "usuario legueado",userUpdate})
 }else{
     res.status(422).json({msg: "contraseña incorecta"})
 }
@@ -161,5 +161,5 @@ const logoutUser = async(req,res)=>{
 
 
 module.exports= {
-    getAllUsers,  createUser, uptadeUser, deleteUser,getOneUsers,logoutUser,logierUser
+    getAllUsers,  createUser, updateUser, deleteUser,getOneUsers,logoutUser,logierUser
 }
